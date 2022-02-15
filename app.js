@@ -5,6 +5,8 @@ var methodOverride = require("method-override"),
 
 console.log("environment: ", env);
 
+require('dotenv').config();
+
 const routes = require("./routes");
 
 var app = express();
@@ -17,6 +19,6 @@ app.use(bodyParser.json());
 
 app.use(routes);
 
-app.listen(8080, function () {
-    console.log("Server is now running");
+app.listen(process.env.PORT, function () {
+    console.log("Server is now running on port ", process.env.PORT);
 });
